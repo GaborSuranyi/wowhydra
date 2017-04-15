@@ -11,9 +11,6 @@ var electronDialog = remote.dialog;
 */
 let mainWindow;
 
-
-var wowPath = '';
-
 function createWindow () {
     // create the browser window
     mainWindow = new BrowserWindow({width: 800, height: 600});

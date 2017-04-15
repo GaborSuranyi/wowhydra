@@ -9,6 +9,7 @@
 <script>
 
 var fs = require('fs');
+var NodeGit = require("nodegit");
 import {bus} from './../main.js';
 
 export default {
@@ -26,13 +27,17 @@ export default {
 			fs.readdir(this.wowPath, (err, files) => {
 				files.forEach(file => {
 					var path = this.wowPath+"\\"+file;
-					if(fs.lstatSync(path).isDirectory()){
+					if(fs.lstatSync(path).isDirectory() && fs.existsSync(path+'/.git') && fs.lstatSync(path+'/.git').isDirectory()){
+						var pathToRepo = require("path").resolve(path);
 
-						if(fs.existsSync(path+'/.git') && fs.lstatSync(path+'/.git').isDirectory()){
-							this.installedAddons.push({
-								name: file
-							});
-						}
+						NodeGit.Repository.open(pathToRepo).then(function (repo) {
+							console.log(repo);
+						});
+						console.log('sync?');
+						this.installedAddons.push({
+							name: file
+						});
+
 					}
 				});
 			})
