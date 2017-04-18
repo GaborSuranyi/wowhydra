@@ -15,6 +15,7 @@
 	var nodeGit = require('nodegit');
 	var filePath = require("path").resolve('D:/wowhydra');
 	console.log('nodegit?');
+  console.log(nodeGit);
 	nodeGit.Repository.open(filePath).then(function(repo) {
 		  console.log('silence');
 		repo.getStatus().then(function(statuses) {
@@ -36,7 +37,7 @@
 	});
 	</script>
   <!--<script src="dist/build.js"></script>-->
-  <script src="static/bootstrap.min.js"></script>
+  <!-- <script src="static/bootstrap.min.js"></script> -->
 
 </body>
 

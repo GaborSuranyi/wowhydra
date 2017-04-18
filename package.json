@@ -4,7 +4,7 @@
   "description": "wowhydra",
   "main": "index.js",
   "scripts": {
-    "start": "electron main.js"
+    "start": "electron app/main.js"
   },
   "keywords": [],
   "author": "",
