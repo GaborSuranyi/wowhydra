@@ -20,6 +20,7 @@ function createWindow () {
     mainWindow.on('closed', function() {
         mainWindow = null;
     });
+	mainWindow.webContents.openDevTools();
 }
 
 // call the createWindow() method when Electron has finished initializing

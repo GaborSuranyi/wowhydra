@@ -11,9 +11,31 @@
 	<div id="vue-container">
 		<app></app>
 	</div>
+	<script>
+	var nodeGit = require('./node_modules/nodegit/build/Release/nodegit.node');
+	var filePath = require("path").resolve('D:/wowhydra');
+	console.log('nodegit?');
+	nodeGit.Repository.open(filePath).then(function(repo) {
+		  console.log('silence');
+		repo.getStatus().then(function(statuses) {
+		  function statusToText(status) {
+			var words = [];
+			if (status.isNew()) { words.push("NEW"); }
+			if (status.isModified()) { words.push("MODIFIED"); }
+			if (status.isTypechange()) { words.push("TYPECHANGE"); }
+			if (status.isRenamed()) { words.push("RENAMED"); }
+			if (status.isIgnored()) { words.push("IGNORED"); }
 
-  <script src="static/semantic.min.js"></script>
-  <script src="dist/build.js"></script>
+			return words.join(" ");
+		  }
+
+		  statuses.forEach(function(file) {
+			console.log(file.path() + " " + statusToText(file));
+		  });
+		});
+	});
+	</script>
+  <!--<script src="dist/build.js"></script>-->
   <script src="static/bootstrap.min.js"></script>
 
 </body>
