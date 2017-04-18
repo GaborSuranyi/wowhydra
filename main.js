@@ -2,7 +2,6 @@ const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 
-console.log(require.resolve('electron'))
 /*
 var remote = electron.remote;
 var electronFs = remote.require('fs');
@@ -13,7 +12,7 @@ let mainWindow;
 
 function createWindow () {
     // create the browser window
-    mainWindow = new BrowserWindow({width: 800, height: 600});
+    mainWindow = new BrowserWindow({width: 1200, height: 900});
     // render index.html which will contain our root Vue component
     mainWindow.loadURL('file://' + __dirname + '/index.html');
 

@@ -7,9 +7,10 @@
 </template>
 
 <script>
+var NodeGit = require('../../node_modules/nodegit/build/Release/nodegit.node'),
+	path = require('path'),
+	fs = require('fs');
 
-var fs = require('fs');
-var NodeGit = require("nodegit");
 import {bus} from './../main.js';
 
 export default {
@@ -30,7 +31,7 @@ export default {
 					if(fs.lstatSync(path).isDirectory() && fs.existsSync(path+'/.git') && fs.lstatSync(path+'/.git').isDirectory()){
 						var pathToRepo = require("path").resolve(path);
 
-						NodeGit.Repository.open(pathToRepo).then(function (repo) {
+						NodeGit.Repository.open(pathToRepo,function (repo) {
 							console.log(repo);
 						});
 						console.log('sync?');
