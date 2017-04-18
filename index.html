@@ -12,7 +12,7 @@
 		<app></app>
 	</div>
 	<script>
-	var nodeGit = require('./node_modules/nodegit/build/Release/nodegit.node');
+	var nodeGit = require('nodegit');
 	var filePath = require("path").resolve('D:/wowhydra');
 	console.log('nodegit?');
 	nodeGit.Repository.open(filePath).then(function(repo) {
